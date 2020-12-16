@@ -1,0 +1,16 @@
+def octal_to_string(octal):
+    result = "" #String que va a contener los permisos
+    value_letters = [(4,"r"),(2,"w"),(1,"x")] #Lista de tuples con los valores a codificar
+    # Iterar sobre cada digito del octal
+    for n in [int(n) for n in str(octal)]:
+        # Check for each of the permissions values
+        for value, letter in value_letters:
+            if n >= value:
+                result += letter
+                n -= value
+            else:
+                result += "-"
+                continue
+    return result
+
+print(octal_to_string(644))
