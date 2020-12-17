@@ -1,0 +1,13 @@
+def combine_lists(list1, list2):
+  result = []
+  # Generate a new list containing the elements of list2
+  new_list2 = list2
+  # Followed by the elements of list1 in reverse order
+  new_list1 = list1[::-1]
+  result = new_list2 + new_list1
+  return result
+	
+Jamies_list = ["Alice", "Cindy", "Bobby", "Jan", "Peter"]
+Drews_list = ["Mike", "Carol", "Greg", "Marcia"]
+
+print(combine_lists(Jamies_list, Drews_list))
