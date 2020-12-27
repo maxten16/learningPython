@@ -1,0 +1,36 @@
+text = "Gone cast away in time \
+Evil yours, now evil mine \
+So I robbed you blind \
+The voices in my head \
+Suggest a less than peaceful side \
+The endless possibilities \
+Controlling every fight, blind! voices."
+
+punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+uninteresting_words = ["the", "a", "to", "if", "is", "it", "of", "and", "or", "an", "as", "i", "me", "my", \
+    "we", "our", "ours", "you", "your", "yours", "he", "she", "him", "his", "her", "hers", "its", "they", "them", \
+    "their", "what", "which", "who", "whom", "this", "that", "am", "are", "was", "were", "be", "been", "being", \
+    "have", "has", "had", "do", "does", "did", "but", "at", "by", "with", "from", "here", "when", "where", "how", \
+    "all", "any", "both", "each", "few", "more", "some", "such", "no", "nor", "too", "very", "can", "will", "just"]
+
+dict0 = {}
+word1 = ""
+word2 = ""
+    
+spltd = text.split(" ") # Primero separo todo el texto subido a una lista con todas las palabras
+for word0 in spltd:              # Ahora iteramos sobre cada una de las palabras en esa lista para procesarla
+    word1 = word0.lower()        # El primer paso es crear una nueva string usando la actual pero haciendola lowercase
+    for letter0 in word1:        # Ahora iteramos sobre cada letra de esa palabra para identificar signos de puntuación
+        if letter0 not in punctuations: 
+            word2 += letter0
+                
+    if word2 not in uninteresting_words:   # Se comprueba que no sea una palabra "no interesante"
+        if word2 not in dict0:             # Luego se verifica si es parte del dictionary final(dict0) o no
+            dict0[word2] = float(1)
+        else:
+            dict0[word2] += float(1)
+                
+    word2 = ""
+    word1 = ""
+    
+dict0
